@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
     const track = document.querySelector(".horizontal-track");
     
     gsap.to(track, {
@@ -96,6 +97,22 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 80%",
             toggleActions: "play none none none"
         }
+    });
+
+    
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('is-active');
+        navToggle.classList.toggle('is-active');
+    });
+    
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('is-active');
+            navToggle.classList.remove('is-active');
+        });
     });
 
 });
